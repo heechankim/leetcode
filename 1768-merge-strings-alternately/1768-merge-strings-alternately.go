@@ -14,19 +14,17 @@ func stringMerge(s1, s2 string) string {
 
 func mergeAlternately(word1 string, word2 string) string {
 
-  diff := len(word1) - len(word2)
-
   switch {
 
-    case diff == 0:
+    case len(word1) == len(word2):
 
       return stringMerge(word1, word2)
 
-    case diff > 0:
+    case len(word1) > len(word2):
 
       return stringMerge(word1[:len(word2)], word2) + word1[len(word2):]
 
-    case diff < 0:
+    case len(word1) < len(word2):
 
       return stringMerge(word1, word2[:len(word1)]) + word2[len(word1):]
 
